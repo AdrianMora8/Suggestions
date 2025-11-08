@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\EightPuzzleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\EightPuzzleApp.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\EightPuzzleApp.AssemblyInfo.cs
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\EightPuzzleApp.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\bin\Debug\net9.0\EightPuzzleApp.exe
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\bin\Debug\net9.0\EightPuzzleApp.deps.json
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\bin\Debug\net9.0\EightPuzzleApp.runtimeconfig.json
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\bin\Debug\net9.0\EightPuzzleApp.dll
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\bin\Debug\net9.0\EightPuzzleApp.pdb
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\EightPuzzleApp.dll
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\refint\EightPuzzleApp.dll
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\EightPuzzleApp.pdb
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\EightPuzzleApp.genruntimeconfig.cache
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\EightPuzzleApp\obj\Debug\net9.0\ref\EightPuzzleApp.dll

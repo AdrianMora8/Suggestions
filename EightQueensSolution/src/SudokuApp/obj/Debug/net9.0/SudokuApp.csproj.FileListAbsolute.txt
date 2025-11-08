@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0\SudokuApp.exe
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0\SudokuApp.deps.json
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0\SudokuApp.runtimeconfig.json
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0\SudokuApp.dll
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0\SudokuApp.pdb
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\SudokuApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\SudokuApp.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\SudokuApp.AssemblyInfo.cs
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\SudokuApp.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\SudokuApp.dll
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\refint\SudokuApp.dll
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\SudokuApp.pdb
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\SudokuApp.genruntimeconfig.cache
+C:\Users\USER\source\repos\ProblemasSuplementarios\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0\ref\SudokuApp.dll

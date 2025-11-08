@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "CookieGameApp/1.0.0": {
+        "runtime": {
+          "CookieGameApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CookieGameApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
