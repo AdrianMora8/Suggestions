@@ -1,196 +1,23 @@
-﻿using System;
-using System.Linq;
-using CookieGameApp.Models;
-using CookieGameApp.Solvers;
-using CookieGameApp.Utils;
+using System;
+using System.Windows.Forms;
+using CookieGameApp.Forms;
 
 namespace CookieGameApp
 {
     internal static class Program
     {
-        private static void Main(string[] args)
+        /// <summary>
+        /// Punto de entrada principal para la aplicación Dots and Boxes (Juego de la Galleta).
+        /// </summary>
+        [STAThread]
+        private static void Main()
         {
-            Console.WriteLine("Juego de la Galleta (Cookie Clicker simplificado) con IA");
-            var producers = ProducerFactory.CreateDefaultProducers();
-            var engine = new GameEngine(producers);
-            var printer = new GamePrinter();
+            // Configuración de la aplicación Windows Forms
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             
-            // Solvers de IA disponibles
-            ICookieSolver greedySolver = new GreedySolver();
-            ICookieSolver dynamicSolver = new DynamicProgrammingSolver();
-            ICookieSolver currentSolver = greedySolver; // Por defecto usar Greedy
-
-            while (true)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Comandos: click | buy <id> | wait <s> | status | suggest | auto [steps] | strategy <target> | solver <greedy|dynamic> | help | exit");
-                Console.Write("> ");
-                var line = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(line)) continue;
-                var parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                var cmd = parts[0].ToLowerInvariant();
-                if (cmd == "exit") break;
-                try
-                {
-                    switch (cmd)
-                    {
-                        case "click":
-                            engine.Click();
-                            Console.WriteLine("Clicked! +1 cookie");
-                            break;
-                        case "buy":
-                            if (parts.Length < 2) { Console.WriteLine("Uso: buy <id>"); break; }
-                            var id = parts[1];
-                            if (engine.TryBuy(id)) Console.WriteLine($"Comprado {id}"); else Console.WriteLine("No hay suficientes cookies o id inválido");
-                            break;
-                        case "wait":
-                            if (parts.Length < 2 || !double.TryParse(parts[1], out var s)) { Console.WriteLine("Uso: wait <segundos>"); break; }
-                            engine.Advance(s);
-                            Console.WriteLine($"Avanzado {s} segundos");
-                            break;
-                        case "status":
-                            printer.PrintStatus(engine);
-                            break;
-                        case "suggest":
-                            // IA sugiere la mejor compra
-                            Console.WriteLine($"[IA usando {(currentSolver is GreedySolver ? "Greedy" : "Dynamic Programming")}]");
-                            var suggestion = currentSolver.SuggestNextPurchase(engine);
-                            if (suggestion == null)
-                            {
-                                Console.WriteLine("No hay sugerencias disponibles. Necesitas más cookies o hacer click.");
-                            }
-                            else
-                            {
-                                printer.PrintSuggestion(suggestion, engine);
-                            }
-                            break;
-                        case "auto":
-                            // IA ejecuta compras automáticamente
-                            int steps = 1;
-                            if (parts.Length > 1 && int.TryParse(parts[1], out var parsedSteps))
-                            {
-                                steps = Math.Min(parsedSteps, 20); // máximo 20 pasos
-                            }
-                            Console.WriteLine($"[IA ejecutando {steps} compra(s) automática(s)...]");
-                            AutoPlay(engine, currentSolver, steps, printer);
-                            break;
-                        case "strategy":
-                            // IA calcula estrategia completa para alcanzar objetivo
-                            if (parts.Length < 2 || !double.TryParse(parts[1], out var target))
-                            {
-                                Console.WriteLine("Uso: strategy <cookies_objetivo>");
-                                break;
-                            }
-                            Console.WriteLine($"[IA calculando estrategia óptima para alcanzar {target} cookies...]");
-                            var strategy = currentSolver.CalculateOptimalStrategy(engine, target);
-                            if (strategy.Length == 0)
-                            {
-                                Console.WriteLine("No se encontró estrategia viable.");
-                            }
-                            else
-                            {
-                                Console.WriteLine($"Estrategia encontrada ({strategy.Length} compras):");
-                                for (int i = 0; i < strategy.Length; i++)
-                                {
-                                    Console.WriteLine($"  {i + 1}. Comprar {strategy[i]}");
-                                }
-                            }
-                            break;
-                        case "solver":
-                            // Cambiar entre solvers
-                            if (parts.Length < 2)
-                            {
-                                Console.WriteLine($"Solver actual: {(currentSolver is GreedySolver ? "Greedy" : "Dynamic Programming")}");
-                                Console.WriteLine("Uso: solver <greedy|dynamic>");
-                                break;
-                            }
-                            var solverType = parts[1].ToLowerInvariant();
-                            if (solverType == "greedy")
-                            {
-                                currentSolver = greedySolver;
-                                Console.WriteLine("Cambiado a Greedy Solver (rápido, heurístico)");
-                            }
-                            else if (solverType == "dynamic")
-                            {
-                                currentSolver = dynamicSolver;
-                                Console.WriteLine("Cambiado a Dynamic Programming Solver (óptimo, más lento)");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Solver no reconocido. Opciones: greedy, dynamic");
-                            }
-                            break;
-                        case "help":
-                            Console.WriteLine("=== COMANDOS MANUALES ===");
-                            Console.WriteLine("click          : obtener 1 cookie manualmente");
-                            Console.WriteLine("buy <id>       : comprar productor (cursor, grandma)");
-                            Console.WriteLine("wait <s>       : avanzar tiempo en segundos");
-                            Console.WriteLine("status         : mostrar estado actual del juego");
-                            Console.WriteLine();
-                            Console.WriteLine("=== COMANDOS DE IA ===");
-                            Console.WriteLine("suggest        : pedir sugerencia a la IA sobre qué comprar");
-                            Console.WriteLine("auto [n]       : dejar que la IA haga n compras automáticamente");
-                            Console.WriteLine("strategy <num> : calcular estrategia óptima para alcanzar objetivo");
-                            Console.WriteLine("solver <tipo>  : cambiar algoritmo de IA (greedy/dynamic)");
-                            Console.WriteLine();
-                            Console.WriteLine("Algoritmos disponibles:");
-                            Console.WriteLine("  - greedy  : Búsqueda heurística (rápida, buenas decisiones)");
-                            Console.WriteLine("  - dynamic : Programación dinámica (óptima, más lenta)");
-                            break;
-                        default:
-                            Console.WriteLine("Comando no reconocido. Escribe 'help'.");
-                            break;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            }
-        }
-
-        private static void AutoPlay(GameEngine engine, ICookieSolver solver, int steps, GamePrinter printer)
-        {
-            for (int i = 0; i < steps; i++)
-            {
-                var suggestion = solver.SuggestNextPurchase(engine);
-                if (suggestion == null)
-                {
-                    // No se puede comprar nada, avanzar tiempo
-                    double timeToNext = CalculateTimeToNextPurchase(engine, solver);
-                    if (timeToNext > 0 && timeToNext < 1000)
-                    {
-                        Console.WriteLine($"Esperando {Math.Round(timeToNext, 1)}s para ahorrar...");
-                        engine.Advance(timeToNext);
-                        suggestion = solver.SuggestNextPurchase(engine);
-                    }
-                }
-
-                if (suggestion == null)
-                {
-                    Console.WriteLine($"Paso {i + 1}: No hay más compras viables. Juega manualmente o espera más tiempo.");
-                    break;
-                }
-
-                if (engine.TryBuy(suggestion.Id))
-                {
-                    Console.WriteLine($"Paso {i + 1}: IA compró {suggestion.Name} (costo: {suggestion.CurrentCost}, CPS: +{suggestion.ProductionPerSecond})");
-                }
-            }
-            Console.WriteLine();
-            printer.PrintStatus(engine);
-        }
-
-        private static double CalculateTimeToNextPurchase(GameEngine engine, ICookieSolver solver)
-        {
-            // Encontrar el productor más barato que podríamos eventualmente comprar
-            var cheapest = engine.Producers.OrderBy(p => p.CurrentCost).FirstOrDefault();
-            if (cheapest == null || engine.TotalCPS <= 0) return 0;
-
-            double needed = cheapest.CurrentCost - engine.Cookies;
-            if (needed <= 0) return 0;
-
-            return needed / engine.TotalCPS;
+            // Iniciar el juego Dots and Boxes
+            Application.Run(new DotsAndBoxesForm());
         }
     }
 }

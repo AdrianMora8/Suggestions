@@ -1,0 +1,15 @@
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\bin\Debug\net9.0-windows\EightQueensApp.exe
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\bin\Debug\net9.0-windows\EightQueensApp.deps.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\bin\Debug\net9.0-windows\EightQueensApp.runtimeconfig.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\bin\Debug\net9.0-windows\EightQueensApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\bin\Debug\net9.0-windows\EightQueensApp.pdb
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.AssemblyInfoInputs.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.AssemblyInfo.cs
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.csproj.CoreCompileInputs.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.sourcelink.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\refint\EightQueensApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.pdb
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\EightQueensApp.genruntimeconfig.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\EightQueensApp\obj\Debug\net9.0-windows\ref\EightQueensApp.dll
