@@ -1,0 +1,15 @@
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.AssemblyInfoInputs.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.AssemblyInfo.cs
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.csproj.CoreCompileInputs.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.sourcelink.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0-windows\SudokuApp.exe
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0-windows\SudokuApp.deps.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0-windows\SudokuApp.runtimeconfig.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0-windows\SudokuApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\bin\Debug\net9.0-windows\SudokuApp.pdb
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\refint\SudokuApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.pdb
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\SudokuApp.genruntimeconfig.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\SudokuApp\obj\Debug\net9.0-windows\ref\SudokuApp.dll

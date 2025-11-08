@@ -139,10 +139,10 @@ namespace CookieGameApp.Solvers
         {
             // Crear una instancia del mismo tipo
             Producer clone;
-            if (original is Cursor)
-                clone = new Cursor();
-            else if (original is Grandma)
-                clone = new Grandma();
+            if (original is CookieGameApp.Models.Cursor)
+                clone = new CookieGameApp.Models.Cursor();
+            else if (original is CookieGameApp.Models.Grandma)
+                clone = new CookieGameApp.Models.Grandma();
             else
                 throw new NotSupportedException($"Tipo de productor no soportado: {original.GetType().Name}");
 

@@ -1,0 +1,15 @@
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.AssemblyInfoInputs.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.AssemblyInfo.cs
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.csproj.CoreCompileInputs.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.sourcelink.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\bin\Debug\net9.0-windows\CookieGameApp.exe
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\bin\Debug\net9.0-windows\CookieGameApp.deps.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\bin\Debug\net9.0-windows\CookieGameApp.runtimeconfig.json
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\bin\Debug\net9.0-windows\CookieGameApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\bin\Debug\net9.0-windows\CookieGameApp.pdb
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\refint\CookieGameApp.dll
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.pdb
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\CookieGameApp.genruntimeconfig.cache
+c:\Users\USER\source\repos\Suggestions\EightQueensSolution\src\CookieGameApp\obj\Debug\net9.0-windows\ref\CookieGameApp.dll
