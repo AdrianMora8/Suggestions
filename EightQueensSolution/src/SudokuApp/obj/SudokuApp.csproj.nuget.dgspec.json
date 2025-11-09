@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\Suggestions\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj": {}
+    "C:\\Users\\oarm8\\OneDrive\\Documentos\\ProblemasSuplementarios\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\Suggestions\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj": {
+    "C:\\Users\\oarm8\\OneDrive\\Documentos\\ProblemasSuplementarios\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\Suggestions\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj",
+        "projectUniqueName": "C:\\Users\\oarm8\\OneDrive\\Documentos\\ProblemasSuplementarios\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj",
         "projectName": "SudokuApp",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\Suggestions\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\Suggestions\\EightQueensSolution\\src\\SudokuApp\\obj\\",
+        "projectPath": "C:\\Users\\oarm8\\OneDrive\\Documentos\\ProblemasSuplementarios\\EightQueensSolution\\src\\SudokuApp\\SudokuApp.csproj",
+        "packagesPath": "C:\\Users\\oarm8\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oarm8\\OneDrive\\Documentos\\ProblemasSuplementarios\\EightQueensSolution\\src\\SudokuApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\oarm8\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

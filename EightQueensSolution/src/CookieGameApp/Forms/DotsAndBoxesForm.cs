@@ -46,13 +46,13 @@ namespace CookieGameApp.Forms
             var player1 = new Player("Jugador 1", Color.Red, isAI: false);
             var player2 = new Player("Jugador 2", Color.Blue, isAI: false);
             
-            _board = new GameBoard(5, 5, player1, player2); // Tablero 5x5
+            _board = new GameBoard(9, 9, player1, player2); // Tablero 9x9 para rombo perfecto con 4 puntas cerradas
             _solver = new StrategicDotsBoxesSolver();
         }
 
         private void InitializeUI()
         {
-            Text = "Dots and Boxes - Juego de la Galleta";
+            Text = "Juego de la Galleta";
             Size = new Size(900, 750);
             StartPosition = FormStartPosition.CenterScreen;
             BackColor = Color.White;
@@ -77,7 +77,7 @@ namespace CookieGameApp.Forms
             // Título
             var lblTitle = new Label
             {
-                Text = "🎮 DOTS AND BOXES",
+                Text = "� JUEGO DE LA GALLETA",
                 Location = new Point(infoPanelX, 20),
                 Size = new Size(250, 35),
                 Font = new Font("Arial", 14, FontStyle.Bold),
@@ -217,7 +217,8 @@ namespace CookieGameApp.Forms
             {
                 Text = "CÓMO JUGAR:\n\n" +
                        "• Haz clic en las líneas\n" +
-                       "  entre los puntos\n\n" +
+                       "  entre los puntos del\n" +
+                       "  rombo (galleta)\n\n" +
                        "• Completa cuadros para\n" +
                        "  ganar puntos\n\n" +
                        "• Si cierras un cuadro,\n" +
@@ -265,14 +266,14 @@ namespace CookieGameApp.Forms
         {
             using (var brush = new SolidBrush(Color.Black))
             {
-                for (int r = 0; r <= _board.Rows; r++)
+                // Obtener solo los puntos válidos del rombo
+                var validPoints = _board.GetValidPoints();
+                
+                foreach (var (row, col) in validPoints)
                 {
-                    for (int c = 0; c <= _board.Cols; c++)
-                    {
-                        int x = MARGIN + c * CELL_SIZE - DOT_SIZE / 2;
-                        int y = MARGIN + r * CELL_SIZE - DOT_SIZE / 2;
-                        g.FillEllipse(brush, x, y, DOT_SIZE, DOT_SIZE);
-                    }
+                    int x = MARGIN + col * CELL_SIZE - DOT_SIZE / 2;
+                    int y = MARGIN + row * CELL_SIZE - DOT_SIZE / 2;
+                    g.FillEllipse(brush, x, y, DOT_SIZE, DOT_SIZE);
                 }
             }
         }
@@ -283,8 +284,11 @@ namespace CookieGameApp.Forms
             {
                 if (!line.IsAvailable)
                 {
-                    var color = line.Owner?.Color ?? Color.Gray;
-                    DrawLine(g, line, color, LINE_THICKNESS);
+                    // Si la línea no tiene dueño, es parte del contorno del rombo (dibujar en negro)
+                    // Si tiene dueño, usar el color del jugador
+                    var color = line.Owner?.Color ?? Color.Black;
+                    var thickness = line.Owner == null ? LINE_THICKNESS + 1 : LINE_THICKNESS;
+                    DrawLine(g, line, color, thickness);
                 }
             }
         }

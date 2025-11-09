@@ -47,25 +47,55 @@ namespace CookieGameApp.Models
 
         private void InitializeBoard()
         {
-            // Crear todas las líneas horizontales
+            // Crear forma de rombo (dos pirámides unidas)
+            // Para un tablero de tamaño N, crear un rombo con puntos válidos
+            
+            // Determinar qué puntos son válidos en la forma de rombo
+            HashSet<(int row, int col)> validPoints = GetDiamondPoints();
+
+            // Crear líneas horizontales solo entre puntos válidos consecutivos
             for (int r = 0; r <= Rows; r++)
             {
                 for (int c = 0; c < Cols; c++)
                 {
-                    Lines.Add(new Line(r, c, isHorizontal: true));
+                    // Verificar si ambos extremos de la línea horizontal son puntos válidos
+                    if (validPoints.Contains((r, c)) && validPoints.Contains((r, c + 1)))
+                    {
+                        var line = new Line(r, c, isHorizontal: true);
+                        
+                        // Si es línea de borde, marcarla como ya ocupada (contorno del rombo)
+                        if (IsRomboBorder(line))
+                        {
+                            line.Claim(null); // Marcar como ocupada sin dueño (es borde fijo)
+                        }
+                        
+                        Lines.Add(line);
+                    }
                 }
             }
 
-            // Crear todas las líneas verticales
+            // Crear líneas verticales solo entre puntos válidos consecutivos
             for (int r = 0; r < Rows; r++)
             {
                 for (int c = 0; c <= Cols; c++)
                 {
-                    Lines.Add(new Line(r, c, isHorizontal: false));
+                    // Verificar si ambos extremos de la línea vertical son puntos válidos
+                    if (validPoints.Contains((r, c)) && validPoints.Contains((r + 1, c)))
+                    {
+                        var line = new Line(r, c, isHorizontal: false);
+                        
+                        // Si es línea de borde, marcarla como ya ocupada (contorno del rombo)
+                        if (IsRomboBorder(line))
+                        {
+                            line.Claim(null); // Marcar como ocupada sin dueño (es borde fijo)
+                        }
+                        
+                        Lines.Add(line);
+                    }
                 }
             }
 
-            // Crear todos los cuadros y vincularlos con sus líneas
+            // Crear cuadros solo dentro del rombo
             for (int r = 0; r < Rows; r++)
             {
                 for (int c = 0; c < Cols; c++)
@@ -75,12 +105,175 @@ namespace CookieGameApp.Models
                     var left = GetLine(r, c, false);
                     var right = GetLine(r, c + 1, false);
 
+                    // Solo crear el cuadro si las 4 líneas existen (están dentro del rombo)
                     if (top != null && bottom != null && left != null && right != null)
                     {
                         Boxes.Add(new Box(r, c, top, bottom, left, right));
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Obtiene los puntos que forman la figura de rombo (dos pirámides unidas).
+        /// Rombo perfecto con las 4 puntas CERRADAS (cada punta forma un cuadrado).
+        /// </summary>
+        private HashSet<(int row, int col)> GetDiamondPoints()
+        {
+            var points = new HashSet<(int row, int col)>();
+            
+            // Rombo centrado con las 4 puntas cerradas:
+            //          • •           Fila 0: columnas 4,5 (punta superior)
+            //        • • • •         Fila 1: columnas 3,4,5,6
+            //      • • • • • •       Fila 2: columnas 2,3,4,5,6,7
+            //    • • • • • • • •     Fila 3: columnas 1,2,3,4,5,6,7,8
+            //  • • • • • • • • • •   Fila 4: columnas 0,1,2,3,4,5,6,7,8,9 (centro)
+            //    • • • • • • • •     Fila 5: columnas 1,2,3,4,5,6,7,8
+            //      • • • • • •       Fila 6: columnas 2,3,4,5,6,7
+            //        • • • •         Fila 7: columnas 3,4,5,6
+            //          • •           Fila 8: columnas 4,5 (punta inferior)
+            
+            // Fila 0: punta superior (2 puntos)
+            points.Add((0, 4));
+            points.Add((0, 5));
+            
+            // Fila 1: 4 puntos
+            points.Add((1, 3));
+            points.Add((1, 4));
+            points.Add((1, 5));
+            points.Add((1, 6));
+            
+            // Fila 2: 6 puntos
+            points.Add((2, 2));
+            points.Add((2, 3));
+            points.Add((2, 4));
+            points.Add((2, 5));
+            points.Add((2, 6));
+            points.Add((2, 7));
+            
+            // Fila 3: 8 puntos
+            points.Add((3, 1));
+            points.Add((3, 2));
+            points.Add((3, 3));
+            points.Add((3, 4));
+            points.Add((3, 5));
+            points.Add((3, 6));
+            points.Add((3, 7));
+            points.Add((3, 8));
+            
+            // Fila 4: 10 puntos (centro más ancho)
+            points.Add((4, 0));
+            points.Add((4, 1));
+            points.Add((4, 2));
+            points.Add((4, 3));
+            points.Add((4, 4));
+            points.Add((4, 5));
+            points.Add((4, 6));
+            points.Add((4, 7));
+            points.Add((4, 8));
+            points.Add((4, 9));
+            
+            // Fila 5: 8 puntos
+            points.Add((5, 1));
+            points.Add((5, 2));
+            points.Add((5, 3));
+            points.Add((5, 4));
+            points.Add((5, 5));
+            points.Add((5, 6));
+            points.Add((5, 7));
+            points.Add((5, 8));
+            
+            // Fila 6: 6 puntos
+            points.Add((6, 2));
+            points.Add((6, 3));
+            points.Add((6, 4));
+            points.Add((6, 5));
+            points.Add((6, 6));
+            points.Add((6, 7));
+            
+            // Fila 7: 4 puntos
+            points.Add((7, 3));
+            points.Add((7, 4));
+            points.Add((7, 5));
+            points.Add((7, 6));
+            
+            // Fila 8: punta inferior (2 puntos)
+            points.Add((8, 4));
+            points.Add((8, 5));
+            
+            return points;
+        }
+
+        /// <summary>
+        /// Verifica si una línea es parte del borde externo del rombo.
+        /// </summary>
+        private bool IsRomboBorder(Line line)
+        {
+            int centerCol = 4;
+            int centerRow = 4;
+            
+            if (line.IsHorizontal)
+            {
+                int r = line.Row;
+                int c = line.Col;
+                
+                // Punta superior (fila 0)
+                if (r == 0)
+                    return (c == centerCol - 1 || c == centerCol + 1);
+                
+                // Parte superior expandiendo (filas 1-4)
+                if (r >= 1 && r <= centerRow)
+                {
+                    int startCol = centerCol - r + 1;
+                    int width = r + 1 + r;
+                    return (c == startCol - 1 || c == startCol + width - 1);
+                }
+                
+                // Parte inferior contrayendo (filas 5-7)
+                if (r >= 5 && r <= 7)
+                {
+                    int offset = r - centerRow;
+                    int width = 6 - offset;
+                    int startCol = centerCol - (3 - offset) + 1;
+                    return (c == startCol - 1 || c == startCol + width - 1);
+                }
+                
+                // Punta inferior (fila 8)
+                if (r == 8)
+                    return (c == centerCol - 1 || c == centerCol + 1);
+            }
+            else // Vertical
+            {
+                int r = line.Row;
+                int c = line.Col;
+                
+                // Punta superior
+                if (r == 0)
+                    return (c == centerCol || c == centerCol + 1);
+                
+                // Bordes laterales parte superior (filas 1-4)
+                if (r >= 1 && r <= centerRow)
+                {
+                    int startCol = centerCol - r + 1;
+                    int width = r + 1 + r;
+                    return (c == startCol || c == startCol + width);
+                }
+                
+                // Bordes laterales parte inferior (filas 4-7)
+                if (r >= centerRow && r <= 7)
+                {
+                    int offset = r - centerRow;
+                    int width = 6 - offset;
+                    int startCol = centerCol - (3 - offset) + 1;
+                    return (c == startCol || c == startCol + width);
+                }
+                
+                // Punta inferior
+                if (r == 7)
+                    return (c == centerCol || c == centerCol + 1);
+            }
+            
+            return false;
         }
 
         /// <summary>
@@ -197,6 +390,14 @@ namespace CookieGameApp.Models
         public List<Box> GetBoxesWithSides(int sideCount)
         {
             return Boxes.Where(b => b.SidesMarked == sideCount && b.Owner == null).ToList();
+        }
+
+        /// <summary>
+        /// Obtiene todos los puntos válidos en la forma de rombo.
+        /// </summary>
+        public HashSet<(int row, int col)> GetValidPoints()
+        {
+            return GetDiamondPoints();
         }
     }
 }

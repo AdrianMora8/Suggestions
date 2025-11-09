@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EightQueensApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35107cc62b68f827c40c3f85eccdf46e7f9ca1f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e083af1211341008273d171e80c5595b885c7f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("EightQueensApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EightQueensApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

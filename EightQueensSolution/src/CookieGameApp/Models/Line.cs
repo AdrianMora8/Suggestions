@@ -21,7 +21,7 @@ namespace CookieGameApp.Models
 
         public bool IsAvailable => Owner == null;
 
-        public void Claim(Player player)
+        public void Claim(Player? player)
         {
             if (Owner == null)
             {
